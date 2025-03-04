@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center bg-white shadow-md rounded-lg p-6 w-70 min-h-[500px] justify-between">
+<div class="flex flex-col items-center bg-app shadow-md rounded-lg p-6 w-70 min-h-[500px] justify-between">
     <!-- Título del libro -->
     <h3 class="text-lg font-semibold text-gray-800 text-center">{{ $title }}</h3>
 

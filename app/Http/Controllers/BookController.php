@@ -12,26 +12,37 @@ class BookController extends Controller
 {
     public function index(): View
     {
-        // Creamos una consulta en lugar de recuperar todos los registros directamente con all().
-        // Esto nos permite construir la consulta de manera flexible y eficiente.
         $query = Book::query();
 
-        // Verificamos si existe el parámetro de búsqueda en la petición (GET)
-        // request()->has('searchValue') -> Comprueba si el parámetro existe en la URL.
-        // request()->get('searchValue') !== '' -> Se asegura de que no esté vacío.
+        // Filtro de búsqueda por título, autor o género
         if (request()->has('searchValue') && request()->get('searchValue') !== '') {
-            // Aplicamos un filtro WHERE con LIKE para buscar títulos que contengan el término introducido.
-            // '%' antes y después del término permite buscar coincidencias parciales.
-            $query->where('title', 'like', '%' . request()->get('searchValue') . '%');
-            $query->where('author', 'like', '%' . request()->get('searchValue') . '%');
+            $searchValue = request()->get('searchValue');
+            $query->where(function ($q) use ($searchValue) {
+                $q->where('title', 'like', '%' . $searchValue . '%')
+                    ->orWhere('author', 'like', '%' . $searchValue . '%')
+                    ->orWhere('genre', 'like', '%' . $searchValue . '%');
+            });
         }
 
-        // Obtenemos los resultados de la consulta y aplicamos paginación para evitar cargar demasiados registros de golpe.
-        // paginate(10) significa que se mostrarán 10 resultados por página.
+        // Filtro por género si no se selecciona "All"
+        if (request()->has('selectGenre') && request()->get('selectGenre') !== 'All') {
+            $query->where('genre', request()->get('selectGenre'));
+        }
+
+        // Paginación de los resultados
         $books = $query->paginate(4);
 
-        // Retornamos la vista 'book.index' pasando la variable $books con los resultados filtrados y paginados.
-        return view('book.index', ['books' => $books]);
+        $genres = ['All', 'Fiction', 'Non-fiction', 'Mystery', 'Science Fiction', 'Fantasy', 'Romance', 'History', 'Biography', 'Horror', 'Children'];
+
+        return view('book.index', compact('books', 'genres'));
+    }
+
+
+    public function bestBooks()
+    {
+        $books = Book::select('id', 'title')->orderByDesc('created_at')->limit(5)->get();
+
+        return view('main', compact('books'));
     }
 
 

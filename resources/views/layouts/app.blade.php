@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
-<body class="bg-blue-100">
+<body class="bg-main">
     @include('layouts.navbar')
     <div class="container mx-auto px-4 my-6 max-w-screen flex flex-col justify-center align-center">
         <h1 class="bg-white-200 p-2 text-center rounded-md font-semibold mb-4">@yield('title','')</h1>

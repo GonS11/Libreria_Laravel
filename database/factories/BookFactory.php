@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
@@ -18,13 +17,13 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            // Generando un ISBN de 13 dígitos
-            'ISBN' => fake()->isbn13(), // Esto genera un ISBN de 13
-            'title' => fake()->sentence(),
-            'author' => fake()->name(),
+            'ISBN' => $this->faker->isbn13(),
+            'title' => $this->faker->words(3, true),
+            'author' => $this->faker->name(),
+            'genre' => $this->faker->randomElement(['Fiction', 'Non-fiction', 'Mystery', 'Science Fiction', 'Fantasy', 'Romance', 'History', 'Biography', 'Horror', 'Children']),
             'cover' => 'https://picsum.photos/200/300',
-            'stock' => fake()->numberBetween(1, 125),
-            'price' => fake()->randomFloat(2, 5, 50) // Para precios con decimales
+            'stock' => $this->faker->numberBetween(1, 125),
+            'price' => $this->faker->randomFloat(2, 5, 100),
         ];
     }
 }

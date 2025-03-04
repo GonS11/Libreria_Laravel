@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Route;
     Si el usuario está autenticado, puede continuar con la ejecución de la lógica en el controlador (en este caso, cerrar sesión).
     Si el usuario no está autenticado, Laravel devolverá automáticamente una respuesta de 401 Unauthorized. */
 
-Route::get('/', function () {
-    return view('main');
-})->name('main');
+Route::get('/', [BookController::class, 'bestBooks'])->name('main');
 
 
 //Controlador rutas get

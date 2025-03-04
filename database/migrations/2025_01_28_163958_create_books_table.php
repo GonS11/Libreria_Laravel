@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ISBN', 13)->unique();
             $table->string('title');
             $table->string('author');
+            $table->string('genre');
             $table->string('cover')->default('https://picsum.photos/200/300');
             $table->smallInteger('stock');
             $table->float('price');

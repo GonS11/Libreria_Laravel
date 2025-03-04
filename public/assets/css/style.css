@@ -1,0 +1,48 @@
+.bg-main {
+    background-color: #E2725B;
+}
+
+.navbar {
+    background-color: #33211D;
+}
+
+.bg-option {
+    background-color: #392C2A;
+}
+
+.bg-option:hover {
+    background-color: #392C2A;
+}
+
+.bg-link:hover {
+    background-color: #8E6E68;
+}
+
+.btn-primary {
+    background-color: #635B5A;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #392C2A;
+}
+
+.text-main {
+    color: #4B4B4B;
+}
+
+.bg-app {
+    background-color: #FAF3E0;
+}
+
+.bg-input {
+    background-color: #e9e2d1;
+}
+
+.text-link {
+    color: #33211D;
+}
+
+.text-title {
+    color: #392C2A;
+}
