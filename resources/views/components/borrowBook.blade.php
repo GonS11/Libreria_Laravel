@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center bg-white shadow-md rounded-lg p-6 w-70 min-h-[500px] justify-between">
+<div class="flex flex-col items-center bg-app shadow-md rounded-lg p-6 w-70 min-h-[500px] justify-between">
     <h3 class="text-lg font-semibold text-gray-800 text-center"><strong>Book ID:</strong>{{ $id }}</h3>
     <p class="text-gray-600 text-center"><strong>Customer ID:</strong> {{ $customerID }}</p>
     <p class="text-gray-600 text-center"><strong>Start:</strong> {{ $start }}</p>

@@ -1,4 +1,4 @@
-<div class="overflow-x-auto bg-white shadow-md rounded-lg">
+<div class="overflow-x-auto bg-app shadow-md rounded-lg">
     @include('layouts._partials.messages')
     @if ($books->isNotEmpty())
      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto">
