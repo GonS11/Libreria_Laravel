@@ -34,7 +34,7 @@ A comprehensive web application for managing a library where users can easily re
     
    ```bash
 ## Clone the repository:
-```git clone https://github.com/GonS11/Medical_Bill_Generator.git
+```git clone https://github.com/GonS11/Libreria_Laravel.git
 
 ## Install dependencies
 
